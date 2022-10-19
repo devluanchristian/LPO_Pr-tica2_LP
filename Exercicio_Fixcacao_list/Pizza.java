@@ -2,30 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
-
     private String nome;
-    private String tamanho;
     private double valor;
+    private String tamanho;
     private boolean possuiBordaRecheada;
-    List<Ingrediente> listaIngredientes = new ArrayList<Ingrediente>();
+    List<Ingrediente> listaIngrediente = new ArrayList<Ingrediente>();
 
-    public Pizza() {
 
-    }
 
-    public Pizza(String nome, String tamanho, double valor, boolean possuiBordaRecheada) {
+    public Pizza(){}
+    public Pizza(String nome, double valor, String tamanho, boolean possuiBordaRecheada) {
         this.nome = nome;
-        this.tamanho = tamanho;
         this.valor = valor;
+        this.tamanho = tamanho;
         this.possuiBordaRecheada = possuiBordaRecheada;
-    }
-
-    public int getQuantidadeIngredientes() {
-        return listaIngredientes.size();
-    }
-
-    public void adicionarIngredientesPizza(Ingrediente i) {
-        listaIngredientes.add(i);
     }
 
     public String getNome() {
@@ -36,20 +26,20 @@ public class Pizza {
         this.nome = nome;
     }
 
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
-
     public double getValor() {
         return valor;
     }
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
     }
 
     public boolean isPossuiBordaRecheada() {
@@ -60,24 +50,31 @@ public class Pizza {
         this.possuiBordaRecheada = possuiBordaRecheada;
     }
 
-    public void calculaPrecoPizza(String tamanho) {
+    // metodos
+    public int getQuantidadeIngrediente() {
+        return listaIngrediente.size();
+    }
 
-        if (tamanho == "G") {
+    public void adcIngrediente(Ingrediente i) {
+        listaIngrediente.add(i);
+    }
+
+    public double calculaPizza() {
+        if (getTamanho() == "G") {
             this.valor = 45.00;
-
-        } else if (tamanho == "M") {
+        } else if (getTamanho() == "M") {
             this.valor = 30.00;
-
-        } else if (tamanho == "P") {
+        } else if (getTamanho() == "P") {
             this.valor = 20.00;
-
         }
 
-        if (getQuantidadeIngredientes() == 5) {
+        if (getQuantidadeIngrediente() == 5) {
             this.valor += 5.00;
-        } else if (isPossuiBordaRecheada() == true) {
+        }
+        if (isPossuiBordaRecheada() == true) {
             this.valor += 8.00;
         }
+        return this.valor;
     }
 
 }
