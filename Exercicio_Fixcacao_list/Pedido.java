@@ -1,53 +1,53 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Pedido {
-    private int numeroPedido;
+
+    Random numPedido = new Random();
     private String data;
-
-    Cliente cliente;
+    Cliente cliente = new Cliente("Luan", "d123123");
     List<Pizza> listaPizza = new ArrayList<Pizza>();
-
-
-    public Pedido(){
-        
-
-
-    }
+    int numR = numPedido.nextInt(4);
+    Pizza p = new Pizza();
     
 
-    public Pedido(int numeroPedido, String data, Cliente cliente) {
-        this.numeroPedido = numeroPedido;
+    public Pedido(Random numPedido, String data) {
+
+        this.numPedido = numPedido;
         this.data = data;
 
     }
-    public void adicionarPizza(Pizza i) {
-        listaPizza.add(i);
+
+    public Random getNumPedido() {
+        return numPedido;
     }
 
-
-    public int getNumeroPedido() {
-        return numeroPedido;
+    public void setNumPedido(Random numPedido) {
+        this.numPedido = numPedido;
     }
-
-
-    public void setNumeroPedido(int numeroPedido) {
-        this.numeroPedido = numeroPedido;
-    }
-
 
     public String getData() {
         return data;
     }
 
-
     public void setData(String data) {
         this.data = data;
     }
 
+    public int getQuantidadePizza() {
+        return listaPizza.size();
+    }
 
+    public void adcPizza(Pizza p) {
+        listaPizza.add(p);
+    }
     
 
+    public String imprimeResumoPedido() {
+        return "Numero do Pedido: " + numR + "\nCliente: " + cliente.getNome() + "\nQuantidade de Pizza: "
+                + getQuantidadePizza() + "\nValor Total do Pedido: " +p.calculaPizza();
 
+    }
 
 }
