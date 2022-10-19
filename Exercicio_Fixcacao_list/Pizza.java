@@ -71,12 +71,13 @@ public class Pizza {
         } else if (tamanho == "P") {
             this.valor = 20.00;
 
-        } else if (getQuantidadeIngredientes() == 5) {
+        }
+
+        if (getQuantidadeIngredientes() == 5) {
             this.valor += 5.00;
         } else if (isPossuiBordaRecheada() == true) {
             this.valor += 8.00;
         }
     }
 
-    
 }
