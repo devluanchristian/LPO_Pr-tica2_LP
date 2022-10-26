@@ -13,4 +13,13 @@ public class Agencia {
     public int getQuantidadeMoto() {
         return listaMoto.size();
     }
+
+    public double calculaValor() {
+        double somarValor = 0.0;
+        for (int i = 0; i < listaMoto.size(); i++) {
+            Moto moto = (Moto) listaMoto.get(i);
+            somarValor += moto.valor;
+        }
+        return somarValor;
+    }
 }
