@@ -15,8 +15,14 @@ public class Sacolao {
 
     }
 
-    public void calculaPreco() {
+    public double calculaValor() {
 
+        double somarValor = 0.0;
+        for (int i = 0; i < listaFruta.size(); i++) {
+            Fruta fruta = (Fruta) listaFruta.get(i);
+            somarValor += fruta.valor;
+        }
+        return somarValor;
     }
 
 }
