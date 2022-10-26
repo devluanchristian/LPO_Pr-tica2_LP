@@ -23,5 +23,15 @@ public class Agencia {
         return listaCarro.size();
     }
 
-    
+    public double calculaValor() {
+        double somaValor = 0.0;
+
+        for (int i = 0; i < listaCarro.size(); i++) {
+            Carro c = (Carro) listaCarro.get(i);
+            somaValor += c.valor;
+        }
+        
+        return somaValor;
+    }
+
 }
